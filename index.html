@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publication des matchs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" >
+        <!-- Présentation du concepteur -->
+        <div class="concepteur-section" style="background-color: #45a04967; box-shadow: 10px 6px 20px rgba(0, 0, 0, 0.479);">
+            <h2>Concepteur du site</h2>
+            <img src="marie.jpg" alt="Concepteur du site" class="concepteur-img">
+            <p>Conçu par Dev Narcy</p>
+        </div>
+        <div>
+            <h2>formulaire concernant un match</h2>
+            <div style="align-items: center;text-align: center;"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSddanuYXzsTg9M4n-6CppqTqznPyYSxOTo1SwG96klPMIdXxA/viewform?embedded=true" width="640" height="1835" frameborder="0" marginheight="0" marginwidth="0"  >Chargement…</iframe></div>
+        </div>
+
+        <!-- Formulaire de publication des matchs -->
+        <div class="match-section">
+            <h2>Publier un Match</h2>
+            <form id="match-form">
+                <label for="sport">Sport :</label>
+                <select id="sport" required>
+                    <option value="basket">Basket</option>
+                    <option value="football">Football</option>
+                </select><br><br>
+                
+                <label for="team1">Équipe 1 :</label>
+                <input type="text" id="team1" placeholder="Nom de l'équipe 1" required><br><br>
+
+                <label for="team2">Équipe 2 :</label>
+                <input type="text" id="team2" placeholder="Nom de l'équipe 2" required><br><br>
+
+                <label for="date">Date :</label>
+                <input type="date" id="date" required><br><br>
+
+                <label for="match-poster">Affiche du match (URL de l'image) :</label>
+                <input type="file" id="match-poster" placeholder="URL de l'affiche du match"><br><br>
+
+                <button type="submit">Publier Match</button>
+            </form>
+            <div id="match-list"></div>
+        </div>
+
+        <!-- Carousel des affiches des matchs -->
+        <section class="carousel">
+            <h2>Carrousel d'Affiches</h2>
+            <div class="carousel-container">
+                <div class="carousel-item"><img src="marie.jpg" alt="Affiche 1"></div>
+                <div class="carousel-item"><img src="marie.jpg" alt="Affiche 2"></div>
+                <div class="carousel-item"><img src="marie.jpg" alt="Affiche 3"></div>
+            </div>
+            <!-- Navigation Manuelle (facultatif) -->
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </section>
+    
+
+        <!-- Classement des équipes -->
+        <div class="ranking-section">
+            <h2>Classement des Équipes</h2>
+            <table id="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Rang</th>
+                        <th>Équipe</th>
+                        <th>Points</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="ranking-list">
+                    <!-- Classement dynamique -->
+                </tbody>
+            </table>
+            
+            <!-- Formulaire pour ajouter un joueur -->
+            <div class="player-form">
+                <h3>Ajouter un Joueur au Classement</h3>
+                <form id="player-form">
+                    <label for="player-name">Nom du joueur :</label>
+                    <input type="text" id="player-name" required><br><br>
+
+                    <label for="player-team">Équipe du joueur :</label>
+                    <input type="text" id="player-team" required><br><br>
+
+                    <label for="player-points">Points :</label>
+                    <input type="number" id="player-points" required><br><br>
+
+                    <label for="player-img">Image du joueur (URL) :</label>
+                    <input type="file" id="player-img" placeholder="URL de l'image du joueur" required><br><br>
+
+                    <button type="submit">Ajouter Joueur</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Liste des remplaçants -->
+        <div class="substitute-section">
+            <h2>Remplaçants</h2>
+            <table id="substitute-table">
+                <thead>
+                    <tr>
+                        <th>Équipe</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody id="substitute-list">
+                    <!-- Remplaçants ajoutés ici -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Formulaire de connexion/inscription -->
+        <div class="auth-section" id="auth-section">
+            <h2 id="auth-title">Se connecter</h2>
+            <form id="auth-form">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" required><br><br>
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" required><br><br>
+
+                <button type="submit">Se connecter</button>
+                <p id="switch-auth" onclick="switchAuthForm()">Pas encore inscrit ? S'inscrire</p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
